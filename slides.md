@@ -8,14 +8,44 @@ transition: fade
 # Coding Café - March 2026
 ## Version Control: Working with Git
 
-
-
 ---
 src: ./motivation.md
 ---
 
 ---
 src: ./configuration.md
+---
+
+---
+src: ./basics.md
+---
+
+---
+src: ./staging-area.md
+---
+
+---
+src: ./branches.md
+---
+
+---
+src: ./conflicts.md
+---
+
+---
+src: ./recovering.md
+---
+
+---
+src: ./interrupted.md
+---
+
+---
+src: ./aliases.md
+---
+
+---
+src: ./under-the-hood.md
 ---
 
 ---
@@ -35,61 +65,33 @@ src: ./local-workflow.md
 ---
 
 ---
+src: ./sharing.md
+---
+
+---
+src: ./creating-using-web.md
+---
+
+---
+src: ./choosing-a-license.md
+---
+
+---
+src: ./contributing.md
+---
+
+---
+src: ./gh-desktop-changes.md
+---
+
+---
 src: ./archaeology.md
 ---
 
 ---
-src: ./sharing.md
----
-
----
 src: ./level.md
 ---
 
 ---
 src: ./what-to-avoid.md
----
-
----
-src: ./sharing.md
----
-
----
-src: ./level.md
----
-
----
-src: ./what-to-avoid.md
----
-
----
-src: ./basics.md
----
-
----
-src: ./branches.md
----
-
----
-src: ./conflicts.md
----
-
----
-src: ./staging-area.md
----
-
----
-src: ./recovering.md
----
-
----
-src: ./interrupted.md
----
-
----
-src: ./aliases.md
----
-
----
-src: ./under-the-hood.md
 ---

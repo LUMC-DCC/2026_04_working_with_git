@@ -1,260 +1,203 @@
+---
+layout: center
+transition: fade
+---
+
 # Undoing and recovering
 
-```{objectives}
-- Learn to undo changes safely
-- See when undone changes are permanently deleted and when they can be retrieved
-```
+One of the main points of version control: you can **go back in time to recover**.
 
-```{instructor-note}
-- 25 min teaching/type-along
-- 25 min exercise
-```
+<div class="p-4 border border-blue-400 rounded bg-blue-50 mt-4">
 
-One of the main points of version control is that you can *go back in
-time to recover*.  Unlike this xkcd comic implies: <https://xkcd.com/1597/>
+**It is almost always possible to recover.**
+As long as you commit something once (or at least `git add` it), you can almost always get it back — no matter what you do.
 
-In this episode we show a couple of commands that can be used to undo mistakes.
-We also list a couple of common mistakes and discuss how to recover from them.
-Some commands preserve the commit history and some modify commit history.
-Modifying history? Isn't a "commit" permanent?
+</div>
 
-- You can modify old commit history.
-- But if you have shared that history already, *modifying it can make
-  a huge mess*.
-
-```{admonition} It is almost always possible to recover
-As long as you commit something once (or at least `git add` it), you
-can almost always go back to it, no matter what you do.
-But you may need to ask Stack Overflow or your local
-guru... *until that guru becomes you*.
-```
-
-```{admonition} Nice resource to visually simulate Git operation
-[git-sim](https://github.com/initialcommit-com/git-sim#video-animation-examples)
-is a nice resouce to visually simulate Git operations listed in this episode
-below, in your own repos with a single terminal command.
-```
+> Some undo commands preserve history. Some modify it. If you've shared that history with others, modifying it can cause problems.
 
 ---
 
-## Undoing your recent, uncommitted and unstaged changes (preserves history)
+## Undoing uncommitted, unstaged changes
 
-```{note}
-In case `git restore` does not work, your Git version might be older than from 2019.
-On older Git it is `git checkout` instead of `git restore`.
+Undo all changes in the working directory:
+
+```console
+$ git restore .
 ```
 
-You do some work, and want to **undo your uncommitted and unstaged modifications**.
-You can always do that with:
+Undo selectively:
+```console
+$ git restore -p              # choose which portions to undo
+$ git restore PATH            # undo a specific file
+```
 
-- `git restore .` (the dot means "here and in all folders below")
+If you have **staged** changes too:
+```console
+$ git restore --staged .      # unstage, then:
+$ git restore .               # discard working dir changes
 
-You can also undo things selectively:
+# Or do both at once:
+$ git reset --hard HEAD
+```
 
-- `git restore -p` (decide which portions of changes to undo) or `git restore PATH` (decide which path/file)
-
-If you have staged changes, you have at least two options to undo the staging:
-- `git restore --staged .` followed by `git status` and `git restore .`
-- `git reset --hard HEAD` throws away everything that is not in last
-  commit (`HEAD` - this literal word, this isn't a placeholder)
+> `HEAD` is literally those four letters — not a placeholder.
 
 ---
 
 ## Reverting commits (preserves history)
 
-Imagine we made a few commits.
-We realize that the latest commit `e02efcd` was a mistake and we wish to undo it:
+You made a bad commit and want to undo it — safely:
+
 ```console
 $ git log --oneline
 
 e02efcd (HEAD -> main) not sure this is a good idea
 b4af65b improve the documentation
 e7cf023 don't forget to enjoy
-79161b6 add half an onion
-a3394e3 adding README
-3696246 adding instructions
-f146d25 adding ingredients
 ```
 
-A safe way to undo the commit is to revert the commit with `git revert`:
+Revert creates a **new commit** that does the opposite:
+
 ```console
 $ git revert e02efcd
 ```
 
-This creates a **new commit** that does the opposite of the reverted commit.
-The old commit remains in the history:
 ```console
 $ git log --oneline
 
 d3fc63a (HEAD -> main) Revert "not sure this is a good idea"
 e02efcd not sure this is a good idea
 b4af65b improve the documentation
-e7cf023 don't forget to enjoy
-79161b6 add half an onion
-a3394e3 adding README
-3696246 adding instructions
-f146d25 adding ingredients
 ```
 
-You can revert any commit, no matter how old it is.  It doesn't affect
-other commits you have done since then - but if they touch the same
-code, you may get a conflict (which we'll learn about later).
+The old commit stays in the history. You can revert any commit, no matter how old.
 
-(exercise-revert)=
+---
 
-### Exercise: Revert a commit
+## Exercise: Revert a commit
 
-```{exercise} Undoing-1: Revert a commit
-- Create a commit (commit A).
-- Revert the commit with `git revert` (commit B).
-- Inspect the history with `git log --oneline`.
-- Now try `git show` on both the reverted (commit A) and the newly created commit (commit B).
-```
+1. Create a commit (commit A).
+2. Revert it with `git revert` (commit B).
+3. Inspect with `git log --oneline`.
+4. Use `git show` on both commits A and B — what do you see?
 
+---
 
-## Adding to the previous commit (modifies history)
+## Amending the last commit (modifies history)
 
-Sometimes we commit but realize we forgot something.
-We can amend to the last commit:
+Forgot something? Add it to the previous commit:
 
 ```console
+$ git add forgotten-file.md
 $ git commit --amend
 ```
 
-This can also be used to modify the last commit message.
+Also works to fix the last commit **message**.
 
-Note that this **will change the commit hash**. This command **modifies the history**.
-This means that we avoid this command on commits that we have shared with others.
+<div class="p-4 border border-yellow-400 rounded bg-yellow-50 mt-4">
 
-(exercise-amend)=
+**Warning:** `--amend` changes the commit hash — it rewrites history.
+Never amend commits you have already pushed and shared with others.
 
-### Exercise: Modify a previous commit
+</div>
 
-````{exercise} Undoing-2: Modify a previous commit
-1. Make an incomplete change to the recipe or a typo in your change, `git
-   add` and `git commit` the incomplete/unsatisfactory change.
-2. Inspect the unsatisfactory but committed change with `git show`. Remember
-   or write down the commit hash.
-3. Now complete/fix the change but instead of creating a new commit, add the
-   correction to the previous commit with `git add`, followed by `git commit
-   --amend`.  What changed?
+---
 
-  ```{solution}
-  One thing that has changed now is the commit hash. Modifying the previous
-  commit has changed the history. This is OK to do on commits that other people
-  don't depend on yet.
-  ```
-````
+## Exercise: Amend a commit
 
+1. Make an incomplete change, `git add` and `git commit` it.
+2. Inspect it with `git show`. Note the commit hash.
+3. Fix the change, then `git add` + `git commit --amend`.
+4. What changed? (The commit hash is now different — history was rewritten.)
 
-## Rewinding branches (modifies history)
+---
 
-You can **reset branch history** to move your branch back to some
-point in the past.
+## Rewinding a branch (modifies history)
 
-* `git reset --hard HASH` will force a branch label to any other point.  All
-  other changes are lost (but it is possible to recover if you force reset by mistake).
-* Be careful if you do this - it can mess stuff up.  Use `git graph` a
-  lot before and after.
+Move a branch label back to a previous commit — discarding everything after it:
 
+```console
+$ git reset --hard HASH
+```
 
-(exercise-reset)=
+<div class="p-4 border border-red-400 rounded bg-red-50 mt-4">
 
-### Exercise: Git reset
+Use this carefully. Check `git graph` before **and** after.
+Other commits are not deleted immediately — dangling objects persist until garbage collection — but they become hard to find.
 
-````{exercise} Undoing-3: Destroy our experimentation in this episode
-  After we have experimented with reverts and amending, let us destroy
-  all of that and get our repositories to a similar state.
+</div>
 
-  - First, we will look at our history (`git log`/`git graph`) and
-    find the last commit `HASH` before our tests.
-  - Then, we will `git reset --hard HASH` to that.
-  - Then, `git graph` again to see what happened.
+---
 
-  ```console
-  $ git log --oneline
+## Exercise: Reset to clean up
 
-  d3fc63a (HEAD -> main) Revert "not sure this is a good idea"
-  e02efcd not sure this is a good idea
-  b4af65b improve the documentation
-  e7cf023 don't forget to enjoy
-  79161b6 add half an onion
-  a3394e3 adding README
-  3696246 adding instructions
-  f146d25 adding ingredients
+After experimenting with revert and amend, reset back to a known-good state:
 
-  $ git reset --hard b4af65b
+```console
+$ git log --oneline
 
-  HEAD is now at b4af65b improve the documentation
+d3fc63a (HEAD -> main) Revert "not sure this is a good idea"
+e02efcd not sure this is a good idea
+b4af65b improve the documentation
+...
 
-  $ git log --oneline
+$ git reset --hard b4af65b
 
-  b4af65b (HEAD -> main) improve the documentation
-  e7cf023 don't forget to enjoy
-  79161b6 add half an onion
-  a3394e3 adding README
-  3696246 adding instructions
-  f146d25 adding ingredients
-  ```
-````
+HEAD is now at b4af65b improve the documentation
+
+$ git log --oneline
+
+b4af65b (HEAD -> main) improve the documentation
+e7cf023 don't forget to enjoy
+...
+```
 
 ---
 
 ## Recovering from committing to the wrong branch
 
-It is easy to forget to create a branch or to create it and forget to switch to
-it when committing changes.
+**Solution 1 — `git cherry-pick`:**
+1. Create the correct branch from the right starting point: `git branch BRANCHNAME HASH`
+2. Switch to it.
+3. `git cherry-pick HASH` — apply specific commits from oldest to newest.
+4. Rewind the wrong branch with `git reset --hard`.
 
-Here we assume that we made a couple of commits but we realize they went to the
-wrong branch.
-
-**Solution 1 using git cherry-pick**:
-1. Make sure that the correct branch exists and if not, create it. Make sure to
-   create it from the commit hash where you wish you had created it from: `git
-   branch BRANCHNAME HASH`
-2. Switch to the correct branch.
-3. `git cherry-pick HASH` can be used to take a specific commit to the
-   current branch. Cherry-pick all commits that should have gone to the correct
-   branch, **from oldest to most recent**.
-4. Rewind the branch that accidentally got wrong commits with `git reset --hard` (see also above).
-
-**Solution 2 using `git reset --hard`** (makes sense if the correct branch should
-contain all commits of the accidentally modified branch):
-1. Create the correct branch, pointing at the latest commit: `git branch BRANCHNAME`.
-2. Check with `git log` or `git graph` that both branches point to the same, latest, commit.
-3. Rewind the branch that accidentally got wrong commits with `git reset --hard` (see also above).
-
-
-## Recovering from merging/pulling into the wrong branch
-
-`git merge`, `git rebase`, and `git pull` modify the **current** branch, never
-the other branch. But sometimes we run this command on the wrong branch.
-
-1. Check with `git log` the commit hash that you would like to rewind the
-   wrongly modified branch to.
-2. Rewind the branch that accidentally got wrong commits with `git reset --hard HASH` (see also above).
-
-
-## Recovering from conflict after pulling changes
-
-Pulling changes with
-`git pull` can create a conflict since `git pull` always also includes a `git merge` (more about this
-in the [collaborative Git lesson](https://coderefinery.github.io/git-collaborative/)).
-
-The recovery is same as described in {ref}`conflict-resolution`. Either
-resolve conflicts or abort the merge with `git merge --abort`.
+**Solution 2 — `git reset --hard`** (when the correct branch should have all commits):
+1. Create the correct branch at the current commit: `git branch BRANCHNAME`
+2. Verify with `git graph` that both branches point to the same commit.
+3. Rewind the wrong branch with `git reset --hard`.
 
 ---
 
-````{challenge} Undoing-4: Test your understanding
-  1. What happens if you accidentally remove a tracked file with `git rm`, is it gone forever?
-  2. Is it OK to modify commits that nobody has seen yet?
-  3. What situations would justify to modify the Git history and possibly remove commits?
+## Other recovery scenarios
 
-  ```{solution}
-  1. It is not gone forever since `git rm` creates a new commit. You can revert the commit to get the file back.
-  2. If you haven't shared your commits with anyone it can be alright to modify them.
-  3. If you have shared your commits with others (e.g. pushed them to GitHub), only extraordinary
-     conditions would justify modifying history. For example to remove sensitive or secret information.
-  ```
-````
+**Merged/pulled into the wrong branch:**
+1. Find the commit hash you want to rewind to with `git log`.
+2. `git reset --hard HASH`
+
+**Conflict after `git pull`:**
+- Resolve the conflict as you would for a regular merge conflict.
+- Or abort with `git merge --abort`.
+
+---
+
+<div class="p-4 border border-blue-400 rounded bg-blue-50">
+
+**Test your understanding**
+
+1. You accidentally remove a tracked file with `git rm`. Is it gone forever?
+2. Is it OK to modify commits nobody has seen yet?
+3. When would modifying Git history ever be justified?
+
+</div>
+
+<div class="p-4 border border-gray-300 rounded bg-gray-50 mt-4">
+
+**Answers**
+
+1. No — `git rm` makes a commit. `git revert` gets the file back.
+2. Yes — if you haven't shared them, amending is fine.
+3. Only in extraordinary cases: e.g. removing accidentally committed secrets or sensitive data.
+
+</div>
