@@ -1,11 +1,26 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# Coding Café – Git & Version Control (March 2026)
 
-To start the slide show:
+**Slides:** https://alpinistpanda.github.io/2026_03_working_with_git/
 
-- `pnpm install`
-- `pnpm dev`
-- visit <http://localhost:3030>
+---
 
-Edit the [slides.md](./slides.md) to see the changes.
+## Run locally
 
-Learn more about Slidev at the [documentation](https://sli.dev/).
+```bash
+npm install
+npm run dev
+```
+
+Then visit http://localhost:3030
+
+## Build
+
+```bash
+npm run build
+```
+
+Output goes to `dist/`.
+
+## Deploy
+
+Slides are automatically deployed to GitHub Pages on every push to `main` via GitHub Actions.
