@@ -1,0 +1,5 @@
+[master]-->c2<--[soup,appetizer]
+           |
+           |
+           |
+           c1
