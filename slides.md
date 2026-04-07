@@ -39,3 +39,7 @@ src: ./b06-push-pull-sync.md
 src: ./b07-conflicts.md
 ---
 
+---
+src: ./b08-good-habits.md
+---
+
