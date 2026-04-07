@@ -8,7 +8,7 @@ transition: fade
 # Coding Café - April 2026
 ## Version Control: Working with Git
 
-The materials are taken from Coderefinery: 
+The materials are taken from Coderefinery and adapted for LUMC Coding Cafe: 
 https://coderefinery.github.io/git-intro/
 
 ---
@@ -28,5 +28,10 @@ src: ./b04-first-commit.md
 ---
 
 ---
-src: ./what-to-avoid.md
+src: ./b05-branches.md
 ---
+
+---
+src: ./b06-push-pull-sync.md
+---
+
