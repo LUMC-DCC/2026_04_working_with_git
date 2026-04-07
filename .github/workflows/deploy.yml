@@ -29,7 +29,7 @@ jobs:
         run: npm ci
 
       - name: Build slides
-        run: npm run build -- --base /2026_03_working_with_git/
+        run: npm run build -- --base /2026_04_working_with_git/
 
       - uses: actions/upload-pages-artifact@v3
         with:
