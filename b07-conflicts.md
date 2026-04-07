@@ -87,19 +87,19 @@ Git is asking: *"Both branches touched this line. I cannot decide which version 
 
 Git inserts **conflict markers** directly into the file:
 
-```
-<<<<<<< HEAD
+<pre class="text-sm bg-gray-100 rounded p-3 mt-4 leading-relaxed">
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 2 tbsp cilantro
 =======
 1/2 tbsp cilantro
->>>>>>> branch-b
-```
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-b
+</pre>
 
 <div class="grid grid-cols-3 gap-3 mt-4 text-sm">
 
 <div class="p-3 border border-blue-400 rounded bg-blue-50">
 
-`<<<<<<< HEAD`
+<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>
 
 Your current branch's version
 
@@ -115,7 +115,7 @@ The divider between the two versions
 
 <div class="p-3 border border-purple-400 rounded bg-purple-50">
 
-`>>>>>>> branch-b`
+<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-b</code>
 
 The incoming branch's version
 
@@ -151,7 +151,7 @@ RStudio highlights conflict markers in the editor. Open the conflicted file and 
 
 <div class="text-sm mt-2">
 
-1. Find the `<<<<<<<` markers in the file
+1. Find the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> markers in the file
 2. Decide which version to keep (or combine them)
 3. Delete all three marker lines
 4. Save the file
