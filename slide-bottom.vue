@@ -1,12 +1,16 @@
 <template>
   <footer
-    class="bg-[#ff0000] absolute bottom-0 left-0 w-full flex items-center justify-between px-6 py-3 text-sm text-white z-20"
+    class="bg-[#003c7d] absolute bottom-0 left-0 w-full flex items-center justify-between px-6 py-3 text-sm text-white z-20"
   >
     <!-- Left: logos -->
     <div class="flex items-center gap-4">
-
       <img
-        src="/img/logo.png"
+        src="/img/lumc-logo-blauw-engels.png"
+        alt="LUMC"
+        class="h-8 object-contain bg-white"
+      />
+      <img
+        src="/img/Logo.png"
         alt="Coding Café"
         class="h-8 object-contain"
       />
@@ -14,7 +18,7 @@
 
     <!-- Center: title -->
     <div class="text-center font-medium tracking-wide">
-      BE Coding Café - 25 March 2026
+      LUMC DCC Coding Café - 7 April 2026
     </div>
 
     <!-- Right: slide numbers -->

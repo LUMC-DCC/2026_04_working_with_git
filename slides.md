@@ -5,94 +5,26 @@ class: text-center
 transition: fade
 ---
 
-# Coding Café - March 2026
+# Coding Café - April 2026
 ## Version Control: Working with Git
 
 The materials are taken from Coderefinery: 
 https://coderefinery.github.io/git-intro/
 
 ---
-src: ./motivation.md
+src: ./b01-why.md
 ---
 
 ---
-src: ./configuration.md
+src: ./b02-concepts.md
 ---
 
 ---
-src: ./basics.md
+src: ./b03-setup.md
 ---
 
 ---
-src: ./staging-area.md
----
-
----
-src: ./branches.md
----
-
----
-src: ./conflicts.md
----
-
----
-src: ./recovering.md
----
-
----
-src: ./interrupted.md
----
-
----
-src: ./aliases.md
----
-
----
-src: ./under-the-hood.md
----
-
----
-src: ./browsing.md
----
-
----
-src: ./commits.md
----
-
----
-src: ./merging.md
----
-
----
-src: ./local-workflow.md
----
-
----
-src: ./sharing.md
----
-
----
-src: ./creating-using-web.md
----
-
----
-src: ./choosing-a-license.md
----
-
----
-src: ./contributing.md
----
-
----
-src: ./gh-desktop-changes.md
----
-
----
-src: ./archaeology.md
----
-
----
-src: ./level.md
+src: ./b04-first-commit.md
 ---
 
 ---
