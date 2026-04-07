@@ -12,6 +12,10 @@ The materials are taken from Coderefinery and adapted for LUMC Coding Cafe:
 https://coderefinery.github.io/git-intro/
 
 ---
+src: ./b00-coding-cafe.md
+---
+
+---
 src: ./b01-why.md
 ---
 
