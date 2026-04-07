@@ -43,3 +43,7 @@ src: ./b07-conflicts.md
 src: ./b08-good-habits.md
 ---
 
+---
+src: ./b09-exercises.md
+---
+
