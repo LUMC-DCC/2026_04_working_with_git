@@ -1,7 +1,10 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "02"
 transition: fade
 ---
+
+<SlideLevel :level="1" />
 
 # Block 2 — Key Concepts
 
@@ -14,6 +17,8 @@ Be able to define and recognise: repository, commit, branch, and remote — the 
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Repository
 
@@ -31,6 +36,8 @@ A **repository** (repo) is just a folder that Git is tracking.
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Commit
 
@@ -60,6 +67,8 @@ A **commit** is a snapshot of your entire project at one moment in time.
 
 ---
 
+<SlideLevel :level="2" />
+
 ## Commits form a chain
 
 Each commit points back to its parent — forming a **history**:
@@ -78,6 +87,8 @@ e7cf023  don't forget to enjoy  ← most recent
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Branch
 
 A **branch** is a separate line of work that can later be merged back.
@@ -91,6 +102,8 @@ A **branch** is a separate line of work that can later be merged back.
 - Branches let you experiment without touching your working version
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Remote
 
@@ -121,6 +134,8 @@ A **remote** is a copy of your repository hosted somewhere else — usually GitH
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## The four concepts together
 
@@ -157,6 +172,11 @@ The hosted copy on GitHub / GitLab — backup + collaboration hub
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="1" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 

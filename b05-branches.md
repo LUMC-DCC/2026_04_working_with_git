@@ -1,7 +1,10 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "05"
 transition: fade
 ---
+
+<SlideLevel :level="1" />
 
 # Block 5 — Branches
 
@@ -14,6 +17,8 @@ Create a branch, make commits on it, and merge it back — so you can experiment
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Why branches?
 
@@ -35,6 +40,8 @@ That works for solo work on one thing. But what if you want to:
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Branches let work diverge — and come back together
 
 <img src="/img/gitink/git-branch-3.svg" class="rounded mt-3 max-h-44 mx-auto" />
@@ -44,6 +51,8 @@ That works for solo work on one thing. But what if you want to:
 - When you are happy, you **merge** the branch back into `main`
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Create a branch in VS Code
 
@@ -55,6 +64,8 @@ Type a new branch name (e.g. `feature/new-analysis`) and press **Enter** — VS 
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Switch branches in VS Code
 
 The status bar always shows your current branch. Click it to switch:
@@ -64,6 +75,8 @@ The status bar always shows your current branch. Click it to switch:
 Any commits you make now go onto this branch only — `main` is untouched.
 
 ---
+
+<SlideLevel :level="2" />
 
 ## Create and switch branches in RStudio
 
@@ -82,6 +95,8 @@ Click the **branch name** in the Git pane (top-right of the pane):
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Merging — bringing work back together
 
 When your branch is ready, merge it back into `main`:
@@ -98,6 +113,8 @@ Git combines the two histories. If the same lines were not touched on both sides
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Merge via Pull Request on GitHub
 
 <img src="/img/merging/github-branches.png" class="border rounded mt-2 max-h-48 mx-auto" />
@@ -112,6 +129,8 @@ $ git pull
 ```
 
 ---
+
+<SlideLevel :level="2" />
 
 ## See all branches and their history
 
@@ -140,6 +159,11 @@ Git pane → History → check **All branches**
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="1" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 

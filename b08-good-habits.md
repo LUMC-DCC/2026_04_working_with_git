@@ -1,7 +1,10 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "08"
 transition: fade
 ---
+
+<SlideLevel :level="1" />
 
 # Block 8 — Good Habits
 
@@ -14,6 +17,8 @@ Know the handful of habits that keep your git history useful, your repo clean, a
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Write commit messages that explain *why*
 
@@ -56,6 +61,8 @@ One summary line. Details below if needed.
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Commit small and often
 
 <div class="grid grid-cols-2 gap-4 mt-4 text-sm">
@@ -90,6 +97,8 @@ Once committed, it is very hard to truly lose work. Commit often and commit free
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## What NOT to commit
 
@@ -139,6 +148,8 @@ Clutter that means nothing to anyone else on the project.
 
 ---
 
+<SlideLevel :level="1" />
+
 ## `.gitignore` — tell Git what to skip
 
 Create a file called `.gitignore` in your repo root:
@@ -172,6 +183,8 @@ results/plots/
 - Commit `.gitignore` itself — so everyone on the project uses the same rules
 
 ---
+
+<SlideLevel :level="2" />
 
 ## `.gitignore` in VS Code and RStudio
 
@@ -213,6 +226,8 @@ Or edit `.gitignore` directly — it is a plain text file.
 
 ---
 
+<SlideLevel :level="2" />
+
 ## Branching level — keep it simple to start
 
 <div class="mt-4 text-sm">
@@ -233,6 +248,11 @@ Start simple and grow your git practice with your project. You don't need the fu
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="1" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 

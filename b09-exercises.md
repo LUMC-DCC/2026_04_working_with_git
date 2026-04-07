@@ -1,130 +1,202 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "Ex"
 transition: fade
 ---
+
+<SlideLevel :level="1" />
 
 # Exercises — Putting it all together
 
 <div class="p-4 border border-green-400 rounded bg-green-50 mt-4 text-left">
 
-**Goal**
+**Two main exercises — the rest are optional**
 
-Work through five short exercises that each revisit one core skill from the session. Do them in order — each one builds on the last. Use VS Code or RStudio, whichever you prefer.
+Exercise 1 gets you set up and makes your first commit. Exercise 2 is a live collaboration on this repo. Exercises 3–5 are there if you want to go further on your own.
 
 </div>
 
 ---
 
-## Exercise 1 — Create a repo and make your first commit
+<SlideLevel :level="1" />
 
-**Setup:** create a fresh repository on GitHub, clone it, and record a meaningful commit.
+## Before you start — Setup checklist
 
-<div class="mt-4 text-sm space-y-2">
+<div class="grid grid-cols-2 gap-x-8 gap-y-1 mt-3 text-xs">
 
-1. Go to GitHub → **New repository**. Name it `git-cafe-practice`. Check "Add a README file". Click **Create repository**.
-2. Clone the repo into VS Code (`Clone Git Repository`) or RStudio (`File → New Project → Version Control → Git`).
-3. Open `README.md` and add a short sentence describing what you will use this repo for.
-4. Stage the file and commit it with a message that explains *why* you made the change — not *what*.
-5. Check your commit history and confirm the message is there.
+<div>
+<p class="font-semibold text-gray-500 uppercase tracking-wide text-[0.6rem] mb-1">GitHub / GitLab account</p>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>Create a free account at github.com (or GitLab)</span></label>
+
+<p class="font-semibold text-gray-500 uppercase tracking-wide text-[0.6rem] mb-1 mt-2">Git installed</p>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>macOS: <code>brew install git</code> or Xcode Command Line Tools</span></label>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>Windows: <strong>Git for Windows</strong> from git-scm.com</span></label>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>Linux: <code>sudo apt install git</code></span></label>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>Verify: <code>git --version</code></span></label>
+</div>
+
+<div>
+<p class="font-semibold text-gray-500 uppercase tracking-wide text-[0.6rem] mb-1">SSH key (recommended)</p>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>Generate: <code>ssh-keygen -t ed25519 -C "your@email"</code></span></label>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>Copy key: <code>cat ~/.ssh/id_ed25519.pub</code></span></label>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>Add on GitHub: <strong>Settings → SSH keys → New SSH key</strong></span></label>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>Test: <code>ssh -T git@github.com</code></span></label>
+
+<p class="font-semibold text-gray-500 uppercase tracking-wide text-[0.6rem] mb-1 mt-2">Editor</p>
+<label class="flex items-start gap-2 cursor-pointer mb-1"><input type="checkbox" class="mt-0.5 shrink-0" /><span>VS Code or RStudio is open and ready</span></label>
+</div>
+
+</div>
+
+---
+
+<SlideLevel :level="1" />
+
+## Exercise 1 — Your first commit <span class="ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-green-100 text-green-800 border border-green-300">Beginner</span>
+
+**Goal:** create your own repo, clone it, and record a meaningful commit.
+
+<div class="text-sm space-y-1 mt-4">
+
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Go to GitHub → <strong>New repository</strong>. Name it <code>git-cafe-practice</code>. Check "Add a README file". Click <strong>Create repository</strong>.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Clone into VS Code (<em>Clone Git Repository</em>) or RStudio (<em>File → New Project → Version Control → Git</em>).</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Open <code>README.md</code> and add a sentence describing what you will use this repo for.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Stage the file and commit with a message that explains <em>why</em> you made the change — not <em>what</em>.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Push to GitHub. Open the repo in your browser and confirm the commit is there.</span></label>
+
+</div>
+
+<div class="p-3 border border-green-400 rounded bg-green-50 mt-4 text-sm">
+
+**Done when:** the history panel shows your commit with your message and the change is visible on GitHub.
+
+</div>
+
+---
+
+<SlideLevel :level="1" />
+
+## Exercise 2 — Collaborate on this repo <span class="ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-blue-100 text-blue-800 border border-blue-300">Main exercise</span>
+
+**Goal:** clone the session repo, add a slide on your own branch, and open a Pull Request.
+
+<div class="text-sm space-y-1 mt-3">
+
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Clone the session repo: <code>git clone git@github.com:LUMC-DCC/2026_04_working_with_git.git</code></span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Create a new branch: <code>git switch -c add-slide/&lt;topic&gt;</code> — pick a short topic name, no personal info needed.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Create a new file <code>contributions/&lt;topic&gt;.md</code> with a single slide — a quote, a tip, a lesson learned, or something you want to share. See the template on the next slide.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Stage and commit: <code>git add contributions/&lt;topic&gt;.md</code> then <code>git commit -m "add contribution slide: &lt;topic&gt;"</code></span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Push your branch: <code>git push -u origin add-slide/&lt;topic&gt;</code></span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Open a <strong>Pull Request</strong> on GitHub — base: <code>main</code>, compare: your branch. The instructor will merge!</span></label>
+
+</div>
+
+---
+
+<SlideLevel :level="1" />
+
+## Exercise 2 — Slide template
+
+Create `contributions/<topic>.md` with this structure:
+
+```markdown
+---
+layout: center
+transition: fade
+---
+
+## Your slide title
+
+Your content here — a quote, a tip, a thought, a tool you love.
+
+No personal information needed. Just something worth sharing.
+```
+
+<div class="p-3 border border-yellow-400 rounded bg-yellow-50 mt-4 text-sm">
+
+**Ideas:** a favourite quote about science or code · a Git tip you wish you knew earlier · a tool that changed your workflow · a lesson from a painful bug · a recommendation
+
+</div>
+
+<div class="p-3 border border-blue-400 rounded bg-blue-50 mt-3 text-sm">
+
+Keep the file in the <code>contributions/</code> folder so it stays tidy. One file per branch = no merge conflicts.
+
+</div>
+
+---
+
+<SlideLevel :level="3" />
+
+## Exercise 3 — Push and pull <span class="ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-gray-100 text-gray-600 border border-gray-300">Optional</span>
+
+**Goal:** sync local work to GitHub and pull remote changes.
+
+<div class="text-sm space-y-1 mt-4">
+
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>On your <code>git-cafe-practice</code> repo, push <code>main</code> to GitHub and confirm both files are visible in the browser.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Edit <code>README.md</code> <strong>directly on GitHub</strong> (pencil icon) — add one line. Commit the change on GitHub.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Back in VS Code or RStudio, <strong>pull</strong> the changes. Confirm your local file now includes the line you added remotely.</span></label>
 
 </div>
 
 <div class="p-3 border border-blue-400 rounded bg-blue-50 mt-4 text-sm">
 
-**Done when:** `git log` (or the history panel) shows your commit with your message.
+**Done when:** <code>git status</code> reports "Your branch is up to date with 'origin/main'".
 
 </div>
 
 ---
 
-## Exercise 2 — Work on a branch
+<SlideLevel :level="3" />
 
-**Goal:** make changes on a separate branch without touching `main`.
-
-<div class="mt-4 text-sm space-y-2">
-
-1. Create a new branch called `add-notes` and switch to it.
-2. Create a new file called `notes.md` and write a few bullet points about what you learned today.
-3. Stage and commit the file with a clear message.
-4. Switch back to `main` and confirm `notes.md` is not there.
-5. Merge `add-notes` into `main`.
-6. Confirm `notes.md` is now on `main`.
-
-</div>
-
-<div class="p-3 border border-blue-400 rounded bg-blue-50 mt-4 text-sm">
-
-**Done when:** the merge is complete and `notes.md` appears on `main`.
-
-</div>
-
----
-
-## Exercise 3 — Push and pull
-
-**Goal:** sync your local work to GitHub and simulate pulling remote changes.
-
-<div class="mt-4 text-sm space-y-2">
-
-1. Push your `main` branch to GitHub. Open the repo in the browser and confirm both `README.md` and `notes.md` are visible.
-2. Edit `README.md` **directly on GitHub** (click the pencil icon) — add one more line. Commit the change on GitHub with a clear message.
-3. Back in VS Code or RStudio, **pull** the changes. Confirm your local `README.md` now includes the line you added on GitHub.
-
-</div>
-
-<div class="p-3 border border-blue-400 rounded bg-blue-50 mt-4 text-sm">
-
-**Done when:** local and remote are in sync and `git status` reports "Your branch is up to date".
-
-</div>
-
----
-
-## Exercise 4 — Resolve a merge conflict
+## Exercise 4 — Resolve a merge conflict <span class="ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-gray-100 text-gray-600 border border-gray-300">Optional</span>
 
 **Goal:** intentionally create a conflict and resolve it calmly.
 
-<div class="mt-4 text-sm space-y-2">
+<div class="text-sm space-y-1 mt-4">
 
-1. Create a new branch called `experiment`.
-2. On `experiment`, edit the first line of `README.md` and commit the change.
-3. Switch back to `main`. Edit the **same first line** of `README.md` differently. Commit.
-4. Merge `experiment` into `main` — Git will report a conflict.
-5. Open the conflicted file, choose (or combine) the two versions, remove the conflict markers, and save.
-6. Stage the resolved file and complete the merge with a commit.
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Create a branch <code>experiment</code>. Edit the first line of <code>README.md</code> and commit.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Switch back to <code>main</code>. Edit the <strong>same first line</strong> differently. Commit.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Merge <code>experiment</code> into <code>main</code> — Git will report a conflict.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Open the conflicted file, choose (or combine) the two versions, remove all conflict markers, and save.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Stage the resolved file and complete the merge with a commit.</span></label>
 
 </div>
 
 <div class="p-3 border border-blue-400 rounded bg-blue-50 mt-4 text-sm">
 
-**Done when:** `git status` is clean and the history shows a merge commit.
+**Done when:** <code>git status</code> is clean and the log shows a merge commit.
 
 </div>
 
 ---
 
-## Exercise 5 — Add a `.gitignore`
+<SlideLevel :level="3" />
+
+## Exercise 5 — Add a `.gitignore` <span class="ml-2 text-xs font-semibold px-2 py-0.5 rounded bg-gray-100 text-gray-600 border border-gray-300">Optional</span>
 
 **Goal:** protect your repo from files that should never be committed.
 
-<div class="mt-4 text-sm space-y-2">
+<div class="text-sm space-y-1 mt-4">
 
-1. Create a file called `secret.env` in your repo folder (just put some dummy text in it).
-2. Run `git status` — notice Git sees it as untracked.
-3. Create a `.gitignore` file and add the line `*.env` to it.
-4. Run `git status` again — `secret.env` should no longer appear.
-5. Stage and commit `.gitignore` with an appropriate message.
-6. **Bonus:** add patterns for your editor's junk files (`.DS_Store`, `Thumbs.db`, `.Rhistory`, etc.).
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Create a file called <code>secret.env</code> with some dummy text. Run <code>git status</code> — Git sees it as untracked.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Create a <code>.gitignore</code> file and add the line <code>*.env</code>.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Run <code>git status</code> again — <code>secret.env</code> should no longer appear.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span>Commit <code>.gitignore</code> with an appropriate message.</span></label>
+<label class="flex items-start gap-2 cursor-pointer"><input type="checkbox" class="mt-1 shrink-0" /><span><strong>Bonus:</strong> add patterns for editor junk: <code>.DS_Store</code>, <code>Thumbs.db</code>, <code>.Rhistory</code>, <code>.RData</code>.</span></label>
 
 </div>
 
 <div class="p-3 border border-blue-400 rounded bg-blue-50 mt-4 text-sm">
 
-**Done when:** `.gitignore` is committed and `secret.env` is invisible to Git.
+**Done when:** <code>.gitignore</code> is committed and <code>secret.env</code> is invisible to Git.
 
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Quick reference — commands used today
 
@@ -147,7 +219,7 @@ git diff
 
 **Branches**
 ```shell
-git branch <name>
+git switch -c <name>
 git switch <name>
 git merge <name>
 git branch -d <name>
@@ -160,7 +232,7 @@ git branch -d <name>
 **Remote**
 ```shell
 git clone <url>
-git push
+git push -u origin <branch>
 git pull
 git fetch
 ```
@@ -181,13 +253,18 @@ git diff <branch1> <branch2>
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="1" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 
 **Well done!**
 
-You have practised the complete Git workflow: creating a repo, committing, branching, pushing and pulling, resolving conflicts, and keeping your repo clean with `.gitignore`.
+You have set up Git, made your first commit, and contributed a slide to a shared repo via a Pull Request — the same workflow used in open source projects every day.
 
-These five operations cover 95 % of everything you will use Git for day-to-day. The rest is just variations on this theme.
+The optional exercises are there whenever you want to dig deeper. Come back to them any time.
 
 </div>

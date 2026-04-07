@@ -1,7 +1,10 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "06"
 transition: fade
 ---
+
+<SlideLevel :level="1" />
 
 # Block 6 — Push, Pull & Sync
 
@@ -14,6 +17,8 @@ Keep your local repository and GitHub/GitLab in sync — push your commits to sh
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Local vs. remote — two copies of your repo
 
@@ -59,6 +64,8 @@ Commits stay local until you push. The remote stays ahead until you pull.
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Push in VS Code
 
 After committing, the Source Control panel shows **"Sync Changes"** or **"Push"**:
@@ -74,6 +81,8 @@ First push on a new branch? VS Code will ask you to publish the branch — click
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Pull in VS Code
 
@@ -92,6 +101,8 @@ In VS Code: Source Control panel → **...** → **Pull**
 
 ---
 
+<SlideLevel :level="2" />
+
 ## Push and pull in RStudio
 
 The Git pane has dedicated **Push** (↑) and **Pull** (↓) buttons:
@@ -104,6 +115,8 @@ The Git pane has dedicated **Push** (↑) and **Pull** (↓) buttons:
 Both buttons show a counter badge when there are commits to send or receive.
 
 ---
+
+<SlideLevel :level="2" />
 
 ## Fetch vs. Pull — what is the difference?
 
@@ -139,6 +152,8 @@ For day-to-day work: just use **Pull** (or **Sync** in VS Code). Fetch is useful
 
 ---
 
+<SlideLevel :level="1" />
+
 ## What if local and remote have both moved on?
 
 <img src="/img/gitink/git-collaborative.svg" class="rounded mt-3 max-h-32 mx-auto" />
@@ -154,6 +169,11 @@ If they were — you get a **merge conflict** (we cover this in the next block).
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="1" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 

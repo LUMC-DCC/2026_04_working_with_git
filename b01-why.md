@@ -1,7 +1,10 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "01"
 transition: fade
 ---
+
+<SlideLevel :level="1" />
 
 # Block 1 — Why Version Control?
 
@@ -15,20 +18,19 @@ Understand the problem version control solves and why it is worth adding to your
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Does this look familiar?
 
-<div class="p-4 border border-gray-300 rounded bg-gray-50 font-mono text-sm mt-4">
+<img src="/img/stranger.jpg" class="max-h-28 rounded mx-auto mt-2 mb-3" />
+
+<div class="p-4 border border-gray-300 rounded bg-gray-50 font-mono text-sm">
 
 ```
-analysis-2023.zip
-analysis-2024-February.zip
-analysis-2024-August.zip
-analysis-2024-09-19-working.zip
-analysis-2024-09-21.zip
-analysis-2024-09-21-test.zip
-analysis-2024-09-21-myversion.zip
-analysis-2024-09-21-newfeature.zip
-... (100 more files)
+analysis-2023.zip  analysis-2024-09-21.zip
+analysis-2024-February.zip  analysis-2024-09-21-test.zip
+analysis-2024-August.zip  analysis-2024-09-21-myversion.zip
+analysis-2024-09-19-working.zip  analysis-2024-09-21-newfeature.zip  ...
 ```
 
 </div>
@@ -40,6 +42,8 @@ analysis-2024-09-21-newfeature.zip
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Questions version control answers
 
@@ -58,11 +62,15 @@ These are not hypothetical. Every researcher hits them.
 
 ---
 
+<SlideLevel :level="1" />
+
 ## What version control gives you
 
-<div class="grid grid-cols-3 gap-4 mt-4">
+<div class="grid grid-cols-3 gap-5 mt-4">
 
-<div class="p-3 border border-blue-400 rounded bg-blue-50 text-sm">
+<div class="p-4 border border-blue-400 rounded bg-blue-50 text-sm flex flex-col items-center text-center gap-2">
+
+<img src="/img/basics/commits-snapshots.png" class="h-20 object-contain rounded" />
 
 **Roll-back**
 
@@ -70,7 +78,9 @@ Always go back to any previous state and compare exactly what changed.
 
 </div>
 
-<div class="p-3 border border-purple-400 rounded bg-purple-50 text-sm">
+<div class="p-4 border border-purple-400 rounded bg-purple-50 text-sm flex flex-col items-center text-center gap-2">
+
+<img src="/img/illustrations/branches.png" class="h-20 object-contain" />
 
 **Branching**
 
@@ -78,7 +88,9 @@ Try an idea in isolation. Keep a stable version while experimenting. Discard saf
 
 </div>
 
-<div class="p-3 border border-green-400 rounded bg-green-50 text-sm">
+<div class="p-4 border border-green-400 rounded bg-green-50 text-sm flex flex-col items-center text-center gap-2">
+
+<img src="/img/illustrations/sharing.png" class="h-20 object-contain" />
 
 **Collaboration**
 
@@ -90,6 +102,8 @@ Multiple people work in parallel without overwriting each other. Review, discuss
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Git tracks your history on GitHub
 
 <img src="/img/git-log-github.png" class="border rounded mt-2 max-h-64 mx-auto" />
@@ -97,6 +111,8 @@ Multiple people work in parallel without overwriting each other. Review, discuss
 <p class="text-center text-sm text-gray-500 mt-2">Every change recorded — who, what, when, and why.</p>
 
 ---
+
+<SlideLevel :level="2" />
 
 ## What you can track with Git
 
@@ -115,6 +131,11 @@ Git is not ideal for large binary files (images, raw data, `.docx`). For those, 
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="1" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 

@@ -1,7 +1,10 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "04"
 transition: fade
 ---
+
+<SlideLevel :level="1" />
 
 # Block 4 — Your First Commit
 
@@ -14,6 +17,8 @@ Create a repository on GitHub, clone it into VS Code or RStudio, make a change, 
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Step 1 — Create a repository on GitHub
 
@@ -30,6 +35,8 @@ Click **"+"** in the top-right → **New repository**:
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Step 2 — Clone into VS Code
 
@@ -48,6 +55,8 @@ The Source Control icon in the left sidebar will now show the Git panel — that
 </div>
 
 ---
+
+<SlideLevel :level="2" />
 
 ## Step 2 (RStudio) — Clone into RStudio
 
@@ -70,6 +79,8 @@ RStudio opens the project with the **Git pane** active in the top-right panel �
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## The staging area — why it exists
 
@@ -95,6 +106,8 @@ Git records changes in **two steps** on purpose:
 
 ---
 
+<SlideLevel :level="1" />
+
 ## Step 3 — Stage and commit in VS Code
 
 Edit `README.md`, then open the **Source Control panel** (`Ctrl+Shift+G`):
@@ -106,6 +119,8 @@ Edit `README.md`, then open the **Source Control panel** (`Ctrl+Shift+G`):
 3. Click **✓ Commit**
 
 ---
+
+<SlideLevel :level="2" />
 
 ## Step 3 (RStudio) — Stage and commit in RStudio
 
@@ -125,6 +140,8 @@ Edit a file, then open the **Git pane → Commit**:
 4. Click **Commit**
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Step 4 — View your history
 
@@ -156,6 +173,11 @@ Git pane → **History** (clock icon)
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="1" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 

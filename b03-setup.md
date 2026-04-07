@@ -1,7 +1,10 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "03"
 transition: fade
 ---
+
+<SlideLevel :level="1" />
 
 # Block 3 — Setup
 
@@ -14,6 +17,8 @@ Have Git configured with your identity and connected to GitHub/GitLab before wri
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Step 1 — Check that Git is installed
 
@@ -33,6 +38,8 @@ Not installed? Download from [git-scm.com](https://git-scm.com/downloads) — or
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Step 2 — Tell Git who you are
 
@@ -61,6 +68,8 @@ Use the same email as your GitHub/GitLab account — this is how the platform li
 </div>
 
 ---
+
+<SlideLevel :level="1" />
 
 ## Step 3 — Connect to GitHub / GitLab
 
@@ -98,20 +107,30 @@ https://github.com/user/repo.git
 
 ---
 
+<SlideLevel :level="2" />
+
 ## Setting up an SSH key — step by step
 
-**1. Generate a key pair** (terminal):
+<div class="grid grid-cols-2 gap-4 mt-3 text-sm">
+
+<div>
+
+**1. Generate a key pair:**
 ```console
 $ ssh-keygen -t ed25519 -C "yourname@lumc.nl"
-# Press Enter to accept the default location (~/.ssh/id_ed25519)
-# Set a passphrase (optional but recommended)
+# Press Enter for default location
+# Set a passphrase (optional)
 ```
 
 **2. Copy your public key:**
 ```console
 $ cat ~/.ssh/id_ed25519.pub
-# Select and copy the entire output
+# Select and copy the output
 ```
+
+</div>
+
+<div>
 
 **3. Add to GitHub:**
 Settings → SSH and GPG keys → **New SSH key** → paste → Save
@@ -119,13 +138,20 @@ Settings → SSH and GPG keys → **New SSH key** → paste → Save
 **4. Add to GitLab** (if needed):
 Preferences → SSH Keys → paste → Save
 
-**5. Test the connection:**
+**5. Test:**
 ```console
 $ ssh -T git@github.com
-# Hi username! You've successfully authenticated.
+# Hi username! You've successfully
+# authenticated.
 ```
 
+</div>
+
+</div>
+
 ---
+
+<SlideLevel :level="2" />
 
 ## Authentication in VS Code and RStudio
 
@@ -167,6 +193,11 @@ Use **HTTPS** clone URLs.
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="1" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 

@@ -1,7 +1,10 @@
 ---
-layout: center
+layout: block-cover
+blockNum: "07"
 transition: fade
 ---
+
+<SlideLevel :level="2" />
 
 # Block 7 — Merge Conflicts
 
@@ -14,6 +17,8 @@ Recognise what a merge conflict is, understand why it happens, and resolve one u
 </div>
 
 ---
+
+<SlideLevel :level="2" />
 
 ## What causes a conflict?
 
@@ -69,6 +74,8 @@ Git can auto-merge the onion change — but not cilantro. That is your conflict.
 
 ---
 
+<SlideLevel :level="2" />
+
 ## Conflicts are not errors — they are questions
 
 <div class="p-4 border border-blue-400 rounded bg-blue-50 mt-4">
@@ -82,6 +89,8 @@ Git is asking: *"Both branches touched this line. I cannot decide which version 
 - You only get conflicts because you *can* work in parallel — simpler tools just prevent that
 
 ---
+
+<SlideLevel :level="2" />
 
 ## What the conflict looks like in the file
 
@@ -127,6 +136,8 @@ Your job: edit the file to look exactly how you want it, then remove all three m
 
 ---
 
+<SlideLevel :level="2" />
+
 ## Resolving conflicts in VS Code
 
 VS Code detects conflict markers and shows a visual editor:
@@ -140,6 +151,8 @@ Click one of the inline options above the conflict:
 - **Compare Changes** — open a side-by-side diff first
 
 ---
+
+<SlideLevel :level="3" />
 
 ## Resolving conflicts in RStudio
 
@@ -164,6 +177,8 @@ RStudio highlights conflict markers in the editor. Open the conflicted file and 
 
 ---
 
+<SlideLevel :level="2" />
+
 ## After resolving — complete the merge
 
 Once you have edited the file and removed all markers:
@@ -184,6 +199,8 @@ Not happy with how the resolution is going? Both IDEs let you abort: VS Code →
 </div>
 
 ---
+
+<SlideLevel :level="2" />
 
 ## How to avoid conflicts in the first place
 
@@ -212,6 +229,11 @@ Not happy with how the resolution is going? Both IDEs let you abort: VS Code →
 </div>
 
 ---
+layout: takeaways
+transition: fade
+---
+
+<SlideLevel :level="2" />
 
 <div class="p-4 border border-green-400 rounded bg-green-50">
 
