@@ -35,3 +35,7 @@ src: ./b05-branches.md
 src: ./b06-push-pull-sync.md
 ---
 
+---
+src: ./b07-conflicts.md
+---
+
